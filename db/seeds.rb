@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "json"
+require "open-uri"
+
+
+puts "Cleaning database..."
+Movie.destroy_all
+
+5.times do
+
+
+  url = "https://tmdb.lewagon.com/movie/top_rated?api_key=%3Cyour_api_key%3E"
+  movie_serialized = URI.open(url).read
+  movie_temp = JSON.parse(movie_serialized)
+  movie = movie_temp["results"].sample
+
+  new_movie = Movie.new(
+    title:  movie["original_title"],
+    overview: movie["overview"],
+    poster_url: "https://image.tmdb.org/t/p/w500#{movie["poster_path"]}",
+    rating: rand(0.1..10.0)
+  )
+  new_movie.save!
+end
+puts 'Finished!'
