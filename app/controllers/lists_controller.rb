@@ -3,6 +3,7 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show]
   def index
     @lists = List.all
+
   end
 
   def show
@@ -11,6 +12,9 @@ class ListsController < ApplicationController
     bookmarks.each do |bookmark|
       @hash_array << {movie: Movie.find(bookmark[:movie_id]), comment: bookmark.comment, bookmark_id: bookmark.id}
     end
+    @bookmark = Bookmark.new
+    @reviews = Review.where("list_id = #{params[:id]}")
+    @review = Review.new
   end
 
   def new

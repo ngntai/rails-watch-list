@@ -1,9 +1,8 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  margin: 10px;
-
+  grid-gap: 40px;
+  margin: 20px 0;
 }
 
 // Smallest device
@@ -57,13 +56,7 @@
   filter: grayscale(100%);
 
 
-  a {
-    color: rgb(240,240,240);
-    &:hover {
-      color: red !important;
-      transition: 0.2s;
-    }
-  }
+
 }
 
 
@@ -71,11 +64,12 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 20px;
 
 }
 
 .card-movie > img {
-  height: 200px;
+  height: 500px;
   width: 100%;
   object-fit: cover;
   position: center;
@@ -100,4 +94,37 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+}
+
+.lien {
+  color: rgb(240,240,240);
+  &:hover {
+    color: red !important;
+    transition: 0.2s;
+  }
+}
+
+.card-bookmark {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px 0;
+
+}
+
+.card-review {
+width: 50%;
+margin-right: 10px;
+}
+
+.add-review {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px 0;
+  width: 50%
 }
