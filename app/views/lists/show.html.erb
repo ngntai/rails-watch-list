@@ -1,5 +1,5 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1485846234645-a62644f84728?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1459;">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, height: 300%>')">
   <div class="container">
     <h1><%= @list.name %></h1>
   </div>
@@ -14,7 +14,7 @@
         <img src="<%=hash[:movie].poster_url=%>" alt="movie_poster">
         <div class="card-movie-infos">
           <div>
-            <h2><%= hash[:movie].title %> - <%= hash[:movie].rating.round(1 ) %> <i class="fa-solid fa-star"></i></h2>
+            <h2><%= hash[:movie].title %> - <%= hash[:movie].rating.round(1) %> <i class="fa-solid fa-star"></i></h2>
             <p><%= hash[:movie].overview %></p>
             <br>
             <div class ="d-flex justify-content-between align-items-center">

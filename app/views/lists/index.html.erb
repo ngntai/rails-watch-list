@@ -9,11 +9,18 @@
 
   <div class="cards">
       <% @lists.each do |list| %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1485846234645-a62644f84728?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1459">
-          <%= link_to list.name, list_path(list) %>
+        <% if list.photo.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url('<%= cl_image_path list.photo.key, height: 300 %>')">
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(https://images.unsplash.com/photo-1485846234645-a62644f84728?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1459")">
+        <% end %>
+        <%= link_to list.name, list_path(list) %>
         </div>
       <% end %>
   </div>
 
     <%=link_to "Ajouter une playlist", new_list_path, class: "btn btn-outline-success btn-lg btn-block mt-3" %>
 </div>
+
+<%= cl_image_tag("yww9smpvt2m6es92xjoa",
+      width: 400, height: 300, crop: :fill) %>
